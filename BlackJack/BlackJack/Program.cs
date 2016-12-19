@@ -10,7 +10,6 @@ namespace BlackJack
     {
         static void Main(string[] args)
         {
-
             Console.Write("Enter your name: ");
             string name = Console.ReadLine();
             var player = Player.GetInstanceOfPlayer(name);
@@ -32,9 +31,7 @@ namespace BlackJack
                         decksQty = 1;
                     }
                     catch (Exception e)
-                    {
-                        Console.WriteLine(e.Message);
-                    }
+                    { Console.WriteLine(e.Message); }
 
                     Game game = new Game(money, decksQty);
 

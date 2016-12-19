@@ -12,7 +12,7 @@ namespace BlackJack
     enum CardName
     {
         TWO = 2, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE,
-        TEN, J = 10, Q = 10, K = 10 , A
+        TEN, A, J, Q, K
     }
     class Card
     {
@@ -24,13 +24,20 @@ namespace BlackJack
         }
         public int GetCardValue
         {
-            get { return (int)cardName; } // можно и методом. но так не надо лишних скобок писать
+            get
+            {
+                if ((int)cardName < 12)
+                    return (int)cardName;
+                else
+                    return 10;
+            } // можно и методом. но так не надо лишних скобок писать
         }
         public override string ToString()
         {
             if((int)cardName < 11)
                 return $"{(int)cardName}{(char)suit}";
             return $"{cardName}{(char)suit}";
+
         }
 
     }
