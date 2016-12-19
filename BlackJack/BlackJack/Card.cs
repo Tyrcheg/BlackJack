@@ -12,7 +12,7 @@ namespace BlackJack
     enum CardName
     {
         TWO = 2, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE,
-        TEN, J = 10, Q = 10, K = 10 , A = 11
+        TEN, J = 10, Q = 10, K = 10 , A
     }
     class Card
     {
@@ -22,10 +22,9 @@ namespace BlackJack
         {
             cardName = _cardName; suit = _suit;
         }
-
-        public int GetCardValue()
+        public int GetCardValue
         {
-            return (int)cardName;
+            get { return (int)cardName; } // можно и методом. но так не надо лишних скобок писать
         }
         public override string ToString()
         {
