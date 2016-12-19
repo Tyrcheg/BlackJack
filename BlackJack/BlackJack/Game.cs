@@ -33,18 +33,18 @@ namespace BlackJack
             {
                 Console.WriteLine(new string('-', 20) + "\nError:\nU can't set negative or zero bet!");
                 Console.Write("Try to enter your bet againg: ");
-                newBet = 0;
                 MakeABet(int.Parse(Console.ReadLine())); // можно и оверфлоу словить 
+                newBet = 0;
             }
             else if (money - newBet < 0)
             {
                 Console.WriteLine(new string('-', 20) + "\nError:\nU dont have much money");
                 Console.Write("Try to enter your bet again: ");
-                newBet = 0;
                 MakeABet(int.Parse(Console.ReadLine())); // можно и оверфлоу словить [2]
+                newBet = 0;
             }
-
-            money -= bet = newBet; 
+            else
+                money -= bet = newBet; 
         }
 
         public void Start()
@@ -57,6 +57,7 @@ namespace BlackJack
                 MakeABet(newBet);
 
                 gameNomber++;
+
                 PrintGameStats();
 
                 //shoes.PrintAllCards();
@@ -75,8 +76,8 @@ namespace BlackJack
             Console.WriteLine(new string('-', 20) + "\nYour cash: {0}$", money);
             Console.WriteLine(new string('-', 20) + "\nGame #{0}", gameNomber);
             Console.WriteLine("Current bet: {0}$", bet);
-            Console.WriteLine("Cards in deck: {0}", shoes.CountCards());
-            Console.WriteLine("Current card: {0}", shoes.GetCardName(shoes.GetNextCard()));
+            Console.WriteLine("Cards in deck: {0}", shoes.Count);
+            Console.WriteLine("Current card: {0}", shoes.GetNextCard().ToString());
 
             Console.WriteLine(new string('-', 20));
         }
