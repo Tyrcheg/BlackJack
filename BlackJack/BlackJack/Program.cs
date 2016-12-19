@@ -11,9 +11,9 @@ namespace BlackJack
         static void Main(string[] args)
         {
 
-            //Console.Write("Enter your name: ");
-            //string name = Console.ReadLine();
-            //var player = Player.GetInstanceOfPlayer(name);
+            Console.Write("Enter your name: ");
+            string name = Console.ReadLine();
+            var player = Player.GetInstanceOfPlayer(name);
 
             Console.Write("Enter your name: ");
             string name = Console.ReadLine();
