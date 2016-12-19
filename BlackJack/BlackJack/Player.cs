@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlackJack
 {
+    // Class for future implementation
    class Player
    {
         static Player player;
