@@ -7,13 +7,12 @@ using System.Threading.Tasks;
 namespace BlackJack
 {
     enum Suit
-    {
-        Hearts = 3, Diamonds = 4, Clubs = 5, Spades = 6
-    }
+    {  Hearts = 3, Diamonds = 4, Clubs = 5, Spades = 6   }
     
     enum CardName
     {
-        TWO = 2, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK = 10, QUEEN = 10, KING = 10 , ACE = 11
+        TWO = 2, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE,
+        TEN, J = 10, Q = 10, K = 10 , A = 11
     }
     class Card
     {
@@ -30,13 +29,10 @@ namespace BlackJack
         }
         public override string ToString()
         {
+            if((int)cardName < 11)
+                return $"{(int)cardName}{(char)suit}";
             return $"{cardName}{(char)suit}";
         }
 
     }
 }
-
-//Card card = new Card(CardName.FIVE, Suit.Clubs);
-//Console.WriteLine(card.ToString());
-//Console.WriteLine((int)CardName.JACK + " " + (int)CardName.KING);
-//Console.WriteLine((int)CardName.FIVE);
