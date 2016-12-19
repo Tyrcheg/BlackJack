@@ -15,10 +15,6 @@ namespace BlackJack
             string name = Console.ReadLine();
             var player = Player.GetInstanceOfPlayer(name);
 
-            Console.Write("Enter your name: ");
-            string name = Console.ReadLine();
-            var player = Player.GetInstanceOfPlayer(name);
-
             while (true)
             {
                 Console.WriteLine("Do you want to start a new game y/n?");
