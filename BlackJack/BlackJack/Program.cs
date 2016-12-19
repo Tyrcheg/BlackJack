@@ -10,22 +10,14 @@ namespace BlackJack
     {
         static void Main(string[] args)
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-            for ((int)Suit.Hearts; i <= (int)Suit.Spades; i++)
-            {
 
-            }
->>>>>>> parent of 2e71f4b... One more test commuit
             //Console.Write("Enter your name: ");
             //string name = Console.ReadLine();
             //var player = Player.GetInstanceOfPlayer(name);
-=======
+
             Console.Write("Enter your name: ");
             string name = Console.ReadLine();
             var player = Player.GetInstanceOfPlayer(name);
->>>>>>> parent of 87a96af... Test commit
 
             while (true)
             {

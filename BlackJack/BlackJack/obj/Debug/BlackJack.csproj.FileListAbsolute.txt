@@ -7,3 +7,6 @@ A:\..NET\UNITEXTasks\BlackJack\BlackJack\obj\Debug\BlackJack.pdb
 A:\github\ConsoleBlackJack\BlackJack\BlackJack\bin\Debug\BlackJack.exe.config
 A:\github\ConsoleBlackJack\BlackJack\BlackJack\obj\Debug\BlackJack.exe
 A:\github\ConsoleBlackJack\BlackJack\BlackJack\obj\Debug\BlackJack.pdb
+A:\git\BlackJack\BlackJack\BlackJack\bin\Debug\BlackJack.exe.config
+A:\git\BlackJack\BlackJack\BlackJack\obj\Debug\BlackJack.exe
+A:\git\BlackJack\BlackJack\BlackJack\obj\Debug\BlackJack.pdb
