@@ -6,19 +6,11 @@ using System.Threading.Tasks;
 
 namespace BlackJack
 {
-    enum Suit
-    {  Hearts = 3, Diamonds = 4, Clubs = 5, Spades = 6   }
-    
-    enum CardName
-    {
-        TWO = 2, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE,
-        TEN, A, J, Q, K
-    }
     class Card
     {
-        Suit suit;
+        CardSuit suit;
         CardName cardName;
-        public Card(CardName _cardName, Suit _suit)
+        public Card(CardName _cardName, CardSuit _suit)
         {
             cardName = _cardName; suit = _suit;
         }
@@ -28,7 +20,7 @@ namespace BlackJack
             {
                 if ((int)cardName < 12)
                     return (int)cardName;
-                else
+
                     return 10;
             } // можно и методом. но так не надо лишних скобок писать
         }

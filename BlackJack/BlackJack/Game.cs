@@ -72,7 +72,7 @@ namespace BlackJack
         public void PrintGameStats()
         {
             Console.Clear();
-            Console.WriteLine("Players' name: {0}", Player.Name);
+            //Console.WriteLine("Players' name: {0}", Player.Name);
             Console.WriteLine(new string('-', 20) + "\nYour cash: {0}$", money);
             Console.WriteLine(new string('-', 20) + "\nGame #{0}", gameNomber);
             Console.WriteLine("Current bet: {0}$", bet);

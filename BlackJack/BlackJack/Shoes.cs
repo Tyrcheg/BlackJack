@@ -56,17 +56,13 @@ namespace BlackJack
             {
                // for (int j = 2; j <= 10; j++)
                 for (int j = (int)CardName.TWO; j <= (int)CardName.TEN; j++)
-                    pack.Insert(new Random().Next(0, pack.Count), new Card((CardName)j, (Suit)i));
+                    pack.Insert(new Random().Next(0, pack.Count), new Card((CardName)j, (CardSuit)i));
 
-                pack.Insert(new Random().Next(0, pack.Count), new Card(CardName.J, (Suit)i));
-                pack.Insert(new Random().Next(0, pack.Count), new Card(CardName.Q, (Suit)i));
-                pack.Insert(new Random().Next(0, pack.Count), new Card(CardName.K, (Suit)i));
-                pack.Insert(new Random().Next(0, pack.Count), new Card(CardName.A, (Suit)i));
+                pack.Insert(new Random().Next(0, pack.Count), new Card(CardName.J, (CardSuit)i));
+                pack.Insert(new Random().Next(0, pack.Count), new Card(CardName.Q, (CardSuit)i));
+                pack.Insert(new Random().Next(0, pack.Count), new Card(CardName.K, (CardSuit)i));
+                pack.Insert(new Random().Next(0, pack.Count), new Card(CardName.A, (CardSuit)i));
             }
-
-            // Pack look up [1]
-            // foreach (var item in pack)    Console.Write(item.ToString() + " ");
-            // Console.ReadLine();
 
             // second shuffle
             for (int i = 0; i < 52; i++)
@@ -75,10 +71,6 @@ namespace BlackJack
                 shoes.Push(pack.ElementAt(r));
                 pack.RemoveAt(r);
             }
-
-            // Pack look up[2]
-            // foreach (var item in shoes) Console.Write(item.ToString() + " ");
-            // Console.ReadLine();
         }
 
         public Card GetNextCard()
@@ -95,23 +87,7 @@ namespace BlackJack
                 Console.WriteLine(card.ToString());
         }
 
-        // для старого стека с целыми числами
-        //public string GetCardName(ushort number)
-        //{
-        //    if (number == ushort.MaxValue)
-        //        return "Deck is over!";
-
-        //    double suit = (double)number / 4;
-        //    if (suit < 3)
-        //        return $"{number % 13 + 2}{(char)3}";
-        //    else if (suit < 6)
-        //        return $"{number % 13 + 2}{(char)4}";
-        //    else if (suit < 9)
-        //        return $"{number % 13 + 2}{(char)5}";
-        //    else
-        //        return $"{number % 13 + 2}{(char)6}";
-        //}
-
+    
 
     }
 }
