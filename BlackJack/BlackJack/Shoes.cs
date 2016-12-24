@@ -10,9 +10,7 @@ namespace BlackJack
     class Shoes
     {
         short decksNo; // количество колод в шузе
-
-        //Stack<ushort> shoes;
-        Stack<Card> shoes;
+        Stack<Card> shoes; 
 
         public Shoes(short quantity)
         {
@@ -21,7 +19,7 @@ namespace BlackJack
         }
 
         //
-        public int Count { get { return shoes.Count;  } }
+        public int Count { get { return shoes.Count - 1;  } }
         
         //void ShoesInitialize()
         //{
@@ -52,9 +50,8 @@ namespace BlackJack
             shoes = new Stack<Card>(52 * decksNo);
             List<Card> pack = new List<Card>(52 * decksNo);
 
-            for (int i = 3; i <= 6; i++)
+            for (int i = (int)CardSuit.Hearts; i <= (int)CardSuit.Spades; i++)
             {
-               // for (int j = 2; j <= 10; j++)
                 for (int j = (int)CardName.TWO; j <= (int)CardName.TEN; j++)
                     pack.Insert(new Random().Next(0, pack.Count), new Card((CardName)j, (CardSuit)i));
 
@@ -63,7 +60,7 @@ namespace BlackJack
                 pack.Insert(new Random().Next(0, pack.Count), new Card(CardName.K, (CardSuit)i));
                 pack.Insert(new Random().Next(0, pack.Count), new Card(CardName.A, (CardSuit)i));
             }
-
+            
             // second shuffle
             for (int i = 0; i < 52; i++)
             {
@@ -71,14 +68,13 @@ namespace BlackJack
                 shoes.Push(pack.ElementAt(r));
                 pack.RemoveAt(r);
             }
+
+            // foreach (var item in shoes) Console.Write(item.ToString() + " ");   Console.ReadKey();
         }
 
         public Card GetNextCard()
         {
-            if (shoes.Count > 0)
-                return shoes.Pop();
-
-            return null;
+            return (shoes.Count > 0) ? shoes.Pop() : null;
         }
         
         public void PrintAllCards()
@@ -86,9 +82,6 @@ namespace BlackJack
             foreach (Card card in shoes)
                 Console.WriteLine(card.ToString());
         }
-
-    
-
     }
 }
 

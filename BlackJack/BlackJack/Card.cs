@@ -12,24 +12,16 @@ namespace BlackJack
         CardName cardName;
         public Card(CardName _cardName, CardSuit _suit)
         {
-            cardName = _cardName; suit = _suit;
+            cardName = _cardName;
+            suit = _suit;
         }
         public int GetCardValue
         {
-            get
-            {
-                if ((int)cardName < 12)
-                    return (int)cardName;
-
-                    return 10;
-            } // можно и методом. но так не надо лишних скобок писать
+            get  {  return ((int)cardName < 12) ? (int)cardName : 10;   } 
         }
         public override string ToString()
         {
-            if((int)cardName < 11)
-                return $"{(int)cardName}{(char)suit}";
-            return $"{cardName}{(char)suit}";
-
+            return ((int)cardName < 11) ? $"{(int)cardName}{(char)suit}" : $"{cardName}{(char)suit}";
         }
 
     }

@@ -10,13 +10,11 @@ namespace BlackJack
    class Player
    {
         public string Name { get; set; }
-        Dictionary<int, string> betHistory = new Dictionary<int, string>();
+        //Dictionary<int, string> betHistory = new Dictionary<int, string>();
 
         public Player(string _name)
         {
             Name = _name;
         }
-
-
     }
 }

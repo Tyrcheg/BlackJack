@@ -10,7 +10,7 @@ namespace BlackJack
     {
         static void Main(string[] args)
         {
-
+            new Session().Start();
         }
     }
 }

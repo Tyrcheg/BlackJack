@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace BlackJack
 {
@@ -11,12 +8,15 @@ namespace BlackJack
         public static string PlayersNameEnter()
         {
             Console.Write("Enter your name: ");
-            return Console.ReadLine();       
+            string s = Console.ReadLine();
+            if (s != "")
+                return s;
+            return "No name";
         }
 
         public static bool StartANewGame()
         {
-            Console.WriteLine("Do you want to start a new game y/n?");
+            Console.Write("Do you want to start a new game y/n?");
             var answer = Console.ReadLine().ToLower();
             if (answer == "yes" || answer == "y" || answer == "н")
                 return true;
@@ -24,13 +24,41 @@ namespace BlackJack
             return false;
         }
 
-        public int DepositEnter()
+        public static int DepositEnter()
         {
-            Console.Write("Enter your deposit: ");
-            int x = 0;
-            if (int.TryParse(Console.ReadLine(), out x))
-                return x;
-            return 0;
+            while (true)
+            {
+                int x;
+                Console.Write("Enter your deposit: ");
+
+                if (int.TryParse(Console.ReadLine(), out x) && x > 0)
+                    return x;
+
+                Console.WriteLine(new string('-', 20) + "\nError. Try again.");
+            }
+        }
+
+        public static void GameEnd()
+        {
+            Console.Clear();
+            Console.WriteLine("Thanx for game! Goodluck!");
+        }
+
+        public static void NoMoneyMessage()
+        {
+            Console.WriteLine(new string('!', 28) + "\nYou have lost all your money\n" + new string('!', 28) + "\n");
+        }
+
+        public static int DecksQtyEnter()
+        {
+            while(true)
+            {
+                ushort decksQty;
+                if (ushort.TryParse(Console.ReadLine(), out decksQty) && decksQty > 1 && decksQty < 5)
+                    return decksQty;
+
+                Console.WriteLine("--" + "\nError\nEnter a quantity from 1 to 4");
+            }
         }
 
     }

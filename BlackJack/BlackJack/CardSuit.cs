@@ -10,5 +10,4 @@ namespace BlackJack
     {
         Hearts = 3, Diamonds = 4, Clubs = 5, Spades = 6
     }
-
 }
