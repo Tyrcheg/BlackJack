@@ -9,23 +9,12 @@ namespace BlackJack
     // Class for future implementation
    class Player
    {
-        static Player player;
-   
-        static string name;
-        public static string Name { get { return name; } }
+        public string Name { get; set; }
+        //Dictionary<int, string> betHistory = new Dictionary<int, string>();
 
-        private Player(string _name)
+        public Player(string _name)
         {
-            name = _name;
+            Name = _name;
         }
-
-        public static Player GetInstanceOfPlayer(string _name)
-        {
-            if (player == null)
-                player = new Player(_name);
-            return player;
-        }
-
-
     }
 }

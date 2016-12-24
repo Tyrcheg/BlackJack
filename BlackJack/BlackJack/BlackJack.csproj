@@ -44,11 +44,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Card.cs" />
+    <Compile Include="CardName.cs" />
+    <Compile Include="ConsoleCommand.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Session.cs" />
     <Compile Include="Shoes.cs" />
+    <Compile Include="CardSuit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
