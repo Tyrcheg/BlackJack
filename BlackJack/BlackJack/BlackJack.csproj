@@ -43,17 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Card.cs" />
-    <Compile Include="CardName.cs" />
-    <Compile Include="ConsoleCommand.cs" />
+    <Compile Include="Players\BasePlayerClass.cs" />
+    <Compile Include="Cards\Card.cs" />
+    <Compile Include="Cards\CardName.cs" />
+    <Compile Include="Game\ConsoleCommand.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="Game.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="Game\Game.cs" />
+    <Compile Include="Players\Dealer.cs" />
+    <Compile Include="Players\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Session.cs" />
-    <Compile Include="Shoes.cs" />
-    <Compile Include="CardSuit.cs" />
+    <Compile Include="Game\Session.cs" />
+    <Compile Include="Cards\Shoes.cs" />
+    <Compile Include="Cards\CardSuit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

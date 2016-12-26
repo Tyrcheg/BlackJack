@@ -7,8 +7,7 @@ namespace BlackJack
     {
         public void Start()
         {
-            Player player = new Player(ConsoleCommand.PlayersNameEnter());
-            Player casino = new Player("Casino");
+            Player player = new Player(ConsoleCommand.PlayersNameEnter(), ConsoleCommand.DepositEnter());
 
             while (true)
             {
@@ -16,11 +15,9 @@ namespace BlackJack
                 {
                     Console.Clear();
 
-                    int money = ConsoleCommand.DepositEnter();
-
                     short decksQty = 1;
 
-                    new Game(money, decksQty, player).Start();
+                    new Game(decksQty, player).StartGame();
                 }
                 else
                 {

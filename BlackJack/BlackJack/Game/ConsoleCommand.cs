@@ -10,13 +10,13 @@ namespace BlackJack
             Console.Write("Enter your name: ");
             string s = Console.ReadLine();
             if (s != "")
-                return s;
+                return s.Replace(s[0], char.ToUpper(s[0]));
             return "No name";
         }
 
         public static bool StartANewGame()
         {
-            Console.Write("Do you want to start a new game y/n?");
+            Console.Write("Do you want to start a new game y/n? ");
             var answer = Console.ReadLine().ToLower();
             if (answer == "yes" || answer == "y" || answer == "н")
                 return true;
@@ -61,5 +61,25 @@ namespace BlackJack
             }
         }
 
+        public static bool NextCard()
+        {
+            Console.CursorVisible = false;
+            Console.Write("Press 'space' to get one more card or any key to end the circle.");
+            if (Console.ReadKey().Key == ConsoleKey.Spacebar)
+                return true;
+
+            Console.CursorVisible = true;
+            return false;
+        }
+
+        public static void StartANewCircle()
+        {
+            Console.CursorVisible = false;
+
+            Console.WriteLine("Press enter no start a new circle.");
+            Console.ReadLine();
+
+            Console.CursorVisible = true;
+        }
     }
 }
