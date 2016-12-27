@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlackJack.Services;
+using System;
 
 
 namespace BlackJack
@@ -11,6 +12,7 @@ namespace BlackJack
             string s = Console.ReadLine();
             if (s != "")
                 return s.Replace(s[0], char.ToUpper(s[0]));
+
             return "No name";
         }
 
@@ -22,6 +24,36 @@ namespace BlackJack
                 return true;
 
             return false;
+        }
+
+        internal static int BetEnter(int money)
+        {
+            while (true)
+            {
+                Console.Write("Place your bet. ({0}$ available) : ", money);
+                int newBet;
+
+                if (!int.TryParse(Console.ReadLine(), out newBet))
+                {
+                    Console.WriteLine("\n" + new string('-', 20) + "\nError:\nEnter number value");
+                    continue;
+                }
+
+                if (newBet < 1)
+                {
+                    Console.WriteLine(new string('-', 20) + "\nError:\nU can't set negative or zero bet!");
+                    Console.Write("Try to enter your bet againg: ");
+                    continue;
+                }
+
+                if (money - newBet < 0)
+                {
+                    Console.WriteLine(new string('-', 20) + "\nError:\nU dont have much money");
+                    Console.Write("Try to enter your bet again: ");
+                    continue;
+                }
+                return newBet;
+            }
         }
 
         public static int DepositEnter()
@@ -51,7 +83,7 @@ namespace BlackJack
 
         public static int DecksQtyEnter()
         {
-            while(true)
+            while (true)
             {
                 ushort decksQty;
                 if (ushort.TryParse(Console.ReadLine(), out decksQty) && decksQty > 1 && decksQty < 5)
@@ -76,10 +108,23 @@ namespace BlackJack
         {
             Console.CursorVisible = false;
 
-            Console.WriteLine("Press enter no start a new circle.");
+            Console.WriteLine("\nPress enter no start a new circle.");
             Console.ReadLine();
 
             Console.CursorVisible = true;
         }
+
+        public static void PrintCurrentCards(BasePlayersClass player)
+        {
+            foreach (Card card in player.Cards)
+                Console.Write(CardServices.GetFullCardName(card) + " ");
+            Console.WriteLine();
+        }
+
+        public static void PrintWin()
+        { Console.WriteLine("You win"); }
+
+        public static void PrintLose()
+        { Console.WriteLine("You lose"); }
     }
 }
