@@ -14,7 +14,7 @@ namespace BlackJack
         public Game(short decksQty, Player _player)
         {
             player = _player;
-            shoes = ShoesServices.CreateShoes(decksQty);
+            shoes = ShoesServ.CreateShoes(decksQty);
         }
 
         public void StartGame()
@@ -24,76 +24,57 @@ namespace BlackJack
             {     
                 gameNumber++;
 
-                PlayerServices.MakeABet(player);
+                PlayerServ.MakeABet(player);
 
                 StartCircle();
 
                 if (player.Money == 0)
-                {
                     break;
-                }
 
                 ConsoleCommand.StartANewCircle();
             }
-
         }
 
         
         void StartCircle()
         {
-            PlayerServices.AddCard(player, ShoesServices.GetNextCard(shoes));
-            PlayerServices.AddCard(dealer, ShoesServices.GetNextCard(shoes));
+            PlayerServ.AddCard(player, ShoesServ.GetNextCard(shoes));
+            PlayerServ.AddCard(dealer, ShoesServ.GetNextCard(shoes));
 
             while (true)
             {
-                PrintGameStats();
+                ConsoleCommand.GameStats(player, dealer, shoes, gameNumber);
 
                 if (ConsoleCommand.NextCard())
                 {
-                    PlayerServices.AddCard(player, ShoesServices.GetNextCard(shoes));
+                    PlayerServ.AddCard(player, ShoesServ.GetNextCard(shoes));
                     continue;
                 }
                 break;
             }
-            PlayerServices.AddCard(dealer, ShoesServices.GetNextCard(shoes));
-            PrintGameStats();
+
+            PlayerServ.AddCard(dealer, ShoesServ.GetNextCard(shoes));
+            ConsoleCommand.GameStats(player, dealer, shoes, gameNumber);
 
             WhosWin(player, dealer);
 
-            PlayerServices.ClearCards(player);
-            PlayerServices.ClearCards(dealer);
+            PlayerServ.ClearCards(player);
+            PlayerServ.ClearCards(dealer);
         }
 
         void WhosWin(Player player, Dealer dealer)
         {
-            int pp = PlayerServices.GetPoints(player), dp = PlayerServices.GetPoints(dealer);
+            int pp = PlayerServ.GetPoints(player), dp = PlayerServ.GetPoints(dealer);
             if (pp > 21 || pp < dp)
             {
                 ConsoleCommand.PrintLose();
                 return;
             }
-            if (pp > dp)
+            if (pp >= dp)
             {
                 ConsoleCommand.PrintWin();
                 player.Money += player.CurrentBet * 2;
             }
-        }
-
-        void PrintGameStats()
-        {
-            Console.Clear();
-            Console.WriteLine("Players' name: {0}", player.Name);
-            Console.WriteLine(new string('-', 20) + "\nYour cash: {0}$", player.Money);
-            Console.WriteLine(new string('-', 20) + "\nGame #{0}", gameNumber);
-            Console.WriteLine("Current bet: {0}$", player.CurrentBet);
-            Console.WriteLine("Cards in deck: {0}", ShoesServices.CountCardsInShoes(shoes));
-
-            Console.WriteLine("Dealers' cards: " );
-            ConsoleCommand.PrintCurrentCards(dealer);
-            Console.WriteLine("Players' cards:");
-            ConsoleCommand.PrintCurrentCards(player);
-
-            Console.WriteLine(new string('-', 20));
         }
     }
 }

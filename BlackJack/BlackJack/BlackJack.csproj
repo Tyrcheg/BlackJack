@@ -46,9 +46,9 @@
     <Compile Include="Entities\Players\BasePlayerClass.cs" />
     <Compile Include="Entities\Cards\Card.cs" />
     <Compile Include="Entities\Cards\CardName.cs" />
-    <Compile Include="Services\CardServices.cs" />
-    <Compile Include="Services\PlayerServices.cs" />
-    <Compile Include="Services\ShoesServices.cs" />
+    <Compile Include="Services\CardServ.cs" />
+    <Compile Include="Services\PlayerServ.cs" />
+    <Compile Include="Services\ShoesServ.cs" />
     <Compile Include="UI\ConsoleCommand.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Services\Game\Game.cs" />

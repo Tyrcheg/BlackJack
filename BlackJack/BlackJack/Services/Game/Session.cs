@@ -9,13 +9,13 @@ namespace BlackJack
         public void Start()
         {
 
-            Player player = PlayerServices.CreateAPlayer(ConsoleCommand.PlayersNameEnter());
+            Player player = PlayerServ.CreateAPlayer(ConsoleCommand.PlayersNameEnter());
 
             while (ConsoleCommand.StartANewGame())
             {
                 Console.Clear();
 
-                PlayerServices.DepositEnter(player, ConsoleCommand.DepositEnter());
+                PlayerServ.DepositEnter(player);
 
                 short decksQty = 1;
 

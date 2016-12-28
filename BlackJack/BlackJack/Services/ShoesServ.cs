@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlackJack.Services
 {
-    static class ShoesServices
+    static class ShoesServ
     {
         public const int CARDSINDECK = 52;
 
@@ -29,12 +29,12 @@ namespace BlackJack.Services
             for (int i = (int)CardSuit.Hearts; i <= (int)CardSuit.Spades; i++)
             {
                 for (int j = (int)CardName.TWO; j <= (int)CardName.TEN; j++)
-                    pack.Insert(new Random().Next(0, pack.Count), CardServices.CreateACard((CardName)j, (CardSuit)i));
+                    pack.Insert(new Random().Next(0, pack.Count), CardServ.CreateACard((CardName)j, (CardSuit)i));
 
-                pack.Insert(new Random().Next(0, pack.Count), CardServices.CreateACard(CardName.K, (CardSuit)i));
-                pack.Insert(new Random().Next(0, pack.Count), CardServices.CreateACard(CardName.J, (CardSuit)i));
-                pack.Insert(new Random().Next(0, pack.Count), CardServices.CreateACard(CardName.Q, (CardSuit)i));
-                pack.Insert(new Random().Next(0, pack.Count), CardServices.CreateACard(CardName.A, (CardSuit)i));
+                pack.Insert(new Random().Next(0, pack.Count), CardServ.CreateACard(CardName.K, (CardSuit)i));
+                pack.Insert(new Random().Next(0, pack.Count), CardServ.CreateACard(CardName.J, (CardSuit)i));
+                pack.Insert(new Random().Next(0, pack.Count), CardServ.CreateACard(CardName.Q, (CardSuit)i));
+                pack.Insert(new Random().Next(0, pack.Count), CardServ.CreateACard(CardName.A, (CardSuit)i));
             }
 
             // second shuffle

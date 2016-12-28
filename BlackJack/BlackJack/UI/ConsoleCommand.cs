@@ -70,6 +70,24 @@ namespace BlackJack
             }
         }
 
+        public static void GameStats(Player player, Dealer dealer, Shoes shoes, int gameNumber)
+        {
+            Console.Clear();
+            Console.WriteLine("Players' name: {0}", player.Name);
+            Console.WriteLine(new string('-', 15 + player.Name.Length));
+            Console.WriteLine("Your cash: {0}$", player.Money);
+            Console.WriteLine(new string('-', 17) + "\nGame #{0}", gameNumber);
+            Console.WriteLine("Current bet: {0}$", player.CurrentBet);
+            Console.WriteLine("Cards in deck: {0}", ShoesServ.CountCardsInShoes(shoes));
+
+            Console.WriteLine("Dealers' cards: ");
+            PrintCurrentCards(dealer);
+            Console.WriteLine("Players' cards:");
+            PrintCurrentCards(player);
+
+            Console.WriteLine(new string('-', 17));
+        }
+
         public static void GameEnd()
         {
             Console.Clear();
@@ -78,7 +96,7 @@ namespace BlackJack
 
         public static void NoMoneyMessage()
         {
-            Console.WriteLine(new string('!', 28) + "\nYou have lost all your money\n" + new string('!', 28) + "\n");
+            Console.WriteLine("\nYou've lost all your money\n");
         }
 
         public static int DecksQtyEnter()
@@ -117,7 +135,7 @@ namespace BlackJack
         public static void PrintCurrentCards(BasePlayersClass player)
         {
             foreach (Card card in player.Cards)
-                Console.Write(CardServices.GetFullCardName(card) + " ");
+                Console.Write(CardServ.GetFullCardName(card) + " ");
             Console.WriteLine();
         }
 
@@ -126,5 +144,7 @@ namespace BlackJack
 
         public static void PrintLose()
         { Console.WriteLine("You lose"); }
+
+
     }
 }

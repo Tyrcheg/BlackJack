@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace BlackJack.Services
 {
-    static class CardServices
+    static class CardServ
     {
         public static Card CreateACard(CardName _cardName, CardSuit _cardSuit)
         {
-            var card = new Card();
-            card.Name = _cardName;
-            card.Suit = _cardSuit;
-            return card;
+            return new Card() { Name = _cardName, Suit = _cardSuit };
         }
         public static int GetCardValue(Card card)
         {

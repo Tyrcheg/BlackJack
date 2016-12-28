@@ -10,7 +10,6 @@ namespace BlackJack
     {
         public int CurrentBet { get; set; }
         public int Money { get; set; }
-
     }
 
 
