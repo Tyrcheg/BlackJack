@@ -78,7 +78,7 @@ namespace BlackJack
             Console.WriteLine("Your cash: {0}$", player.Money);
             Console.WriteLine(new string('-', 17) + "\nGame #{0}", gameNumber);
             Console.WriteLine("Current bet: {0}$", player.CurrentBet);
-            Console.WriteLine("Cards in deck: {0}", ShoesServ.CountCardsInShoes(shoes));
+            Console.WriteLine("Cards in shoes: {0}", ShoesServ.CountCardsInShoes(shoes));
 
             Console.WriteLine("Dealers' cards: ");
             PrintCurrentCards(dealer);
@@ -91,7 +91,7 @@ namespace BlackJack
         public static void GameEnd()
         {
             Console.Clear();
-            Console.WriteLine("Thanx for game! Goodluck!");
+            Console.WriteLine("Thanx for game! Goodluck!\n");
         }
 
         public static void NoMoneyMessage()
@@ -107,7 +107,7 @@ namespace BlackJack
                 if (ushort.TryParse(Console.ReadLine(), out decksQty) && decksQty > 1 && decksQty < 5)
                     return decksQty;
 
-                Console.WriteLine("--" + "\nError\nEnter a quantity from 1 to 4");
+                Console.WriteLine("--" + "\nError\nEnter a quantity from 1 to 8");
             }
         }
 

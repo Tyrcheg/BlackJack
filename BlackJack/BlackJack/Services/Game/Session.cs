@@ -9,7 +9,7 @@ namespace BlackJack
         public void Start()
         {
 
-            Player player = PlayerServ.CreateAPlayer(ConsoleCommand.PlayersNameEnter());
+            var player = PlayerServ.CreateAPlayer(ConsoleCommand.PlayersNameEnter());
 
             while (ConsoleCommand.StartANewGame())
             {
