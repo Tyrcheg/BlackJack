@@ -64,13 +64,13 @@ namespace BlackJack
 
         void WhosWin(Player player, Dealer dealer)
         {
-            int pp = PlayerServ.GetPoints(player), dp = PlayerServ.GetPoints(dealer);
-            if (pp > 21 || pp < dp)
+            int playerPoints = PlayerServ.GetPoints(player), dealerPoints = PlayerServ.GetPoints(dealer);
+            if (playerPoints > 21 || playerPoints < dealerPoints)
             {
                 ConsoleCommand.PrintLose();
                 return;
             }
-            if (pp >= dp)
+            if (playerPoints >= dealerPoints)
             {
                 ConsoleCommand.PrintWin();
                 player.Money += player.CurrentBet * 2;

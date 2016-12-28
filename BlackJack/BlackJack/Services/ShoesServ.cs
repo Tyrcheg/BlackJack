@@ -37,7 +37,6 @@ namespace BlackJack.Services
                 pack.Insert(new Random().Next(0, pack.Count), CardServ.CreateACard(CardName.A, (CardSuit)i));
             }
 
-            // second shuffle
             for (int i = 0; i < CARDSINDECK; i++)
             {
                 int r = new Random().Next(0, CARDSINDECK);
@@ -46,7 +45,6 @@ namespace BlackJack.Services
                 pack[r] = buff;
             }
 
-            //third shuffle
             for (int i = 0; i < CARDSINDECK; i++)
             {
                 int r = new Random().Next(0, pack.Count - 1);
